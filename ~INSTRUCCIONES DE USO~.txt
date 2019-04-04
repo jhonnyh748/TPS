@@ -1,0 +1,42 @@
+/**********************************************************************************************
+/************************              INVENTARIADO             *******************************
+/**********************************************************************************************
+
+Esta es la aplicacion de gestion de inventariado, donde podras registrar movimientos de entrada 
+(compra, devoluciones de compras), y movimientos de salida (venta, devolucin de venta), asi como 
+ver reportes de estos movimieton y guardarlos en formato PDF. Esta aplicaion esta basada en el 
+metodo KARDEX que se usa para registrar los dichos movimiento sobre un producto.
+
+A continuacion, las instrucciones para el uso de la aplicaion de gestion de inventariado:
+
+1) Antes de usar la app, debes asegurarte de tener instlado un gestor de base de datos MySQL, y
+conecer su usuario y su contraseña (si la tiene).NOTA: se recomienda instalar XAMPP en sus ultimas 
+versiones para este proposito.
+
+2) Una vez tengas el gestor MySQL listo, debes encenderlo para que los datos puedan ser guardados
+de manera correcta en el siguiente paso.
+
+3) Una vez encendido el gestor, abre el acceso directo creadorBD, el cual tew mostrará una ventana
+donde podras  crear la base de datos indispensable para el correcto funcionamiento de la aplicaion. 
+NOTA: este archivo debe ser ejecutado solo la primera vez que vayas a hacer uso de la app de in-
+ventariado, de ahi en adelnte ya no se necesitara mas. 
+
+4) Ejecutar el acceso directo Inventariado. Esta es la aplicaion principal donde podras realizar
+todas las operaciones mencionadas. 
+NOTA: puedes copiar ese acceso directo en el escritorio para ms rapido acceso
+
+5) Repite el paso (2) y el paso (4) cada vez que vayas a hacer uso de la app inventariado
+
+
+/**********************************************************************************************
+/**********************************************************************************************
+/**********************************************************************************************
+
+
+
+
+
+
+
+
+6) paso muy importante Disfrutar la vida !! :) :) :)  

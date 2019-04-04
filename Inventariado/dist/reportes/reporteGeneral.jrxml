@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteGeneral" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9381318a-9a3e-409f-ba07-fe5f55db2ea3">
+    <property name="ireport.zoom" value="1.1000000000000008"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <queryString>
+		<![CDATA[SELECT
+ numFacturaF, fechaF,  tipoMovimientoF,  refOtraFacturaF, cantidadUnidadesF, costoUnitarioF,
+ cantidadUnidadesEntrada, costoUnitarioEntrada, costoTotalEntrada,
+ cantidadunidadesSalida, costoUnitarioSalida, costoTotalSalida,
+ cantidadExistencias, costoTotalSaldo, costoUnitarioPromedio
+
+  FROM factura  LEFT JOIN entrada
+  ON numFacturaF = numFacturaEntrada
+  LEFT JOIN salida ON numFacturaF = numFacturaSalida LEFT JOIN saldo on numFacturaF = numFacturasaldo;]]>
+    </queryString>
+    <field name="numFacturaF" class="java.lang.Integer">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="fechaF" class="java.lang.String">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="tipoMovimientoF" class="java.lang.String">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="refOtraFacturaF" class="java.lang.Integer">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="cantidadUnidadesF" class="java.lang.Integer">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="costoUnitarioF" class="java.lang.Double">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="cantidadUnidadesEntrada" class="java.lang.Integer">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="costoUnitarioEntrada" class="java.lang.Double">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="costoTotalEntrada" class="java.lang.Double">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="cantidadunidadesSalida" class="java.lang.Integer">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="costoUnitarioSalida" class="java.lang.Double">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="costoTotalSalida" class="java.lang.Double">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="cantidadExistencias" class="java.lang.Integer">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="costoTotalSaldo" class="java.lang.Double">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="costoUnitarioPromedio" class="java.lang.Double">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="98" splitType="Stretch">
+            <staticText>
+                <reportElement mode="Opaque" x="118" y="0" width="677" height="47" backcolor="#99B4D1" uuid="2cb426e1-6016-49cb-a2ee-af5828877a04"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="20"/>
+                </textElement>
+                <text><![CDATA[REPORTE GENERAL DE INVENTARIO DEL KARDEX]]></text>
+            </staticText>
+            <line>
+                <reportElement x="118" y="88" width="673" height="1" uuid="f7229763-a727-4a53-a2f6-703f91c82113"/>
+                <graphicElement>
+                    <pen lineWidth="3.0" lineStyle="Double"/>
+                </graphicElement>
+            </line>
+            <image>
+                <reportElement x="0" y="0" width="103" height="98" uuid="2a74abd8-475d-4bc9-b8b6-10acc5dfd660"/>
+                <imageExpression><![CDATA["D:\\Mis Documentos\\~Proyectos~\\NetBeansProjects\\Pruebas de Software - inventario\\Inventariado\\src\\imagenes\\índiceNuevo.png"]]></imageExpression>
+            </image>
+            <textField pattern="EEEEE dd MMMMM yyyy">
+                <reportElement x="643" y="57" width="148" height="20" uuid="640656a5-b10f-42cf-9201-52b1dcbd5bb4"/>
+                <textElement>
+                    <font size="14"/>
+                </textElement>
+                <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+    <pageHeader>
+        <band height="35" splitType="Stretch">
+            <staticText>
+                <reportElement mode="Opaque" x="-7" y="10" width="391" height="25" backcolor="#CCCCFF" uuid="d8a51764-3b3f-419e-8edd-4ad0ca6cddb0"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[DETALLE FACTURA]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="379" y="10" width="163" height="25" backcolor="#AFEAF9" uuid="108de0e6-273f-461c-adc3-bfe58c85e4d4"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[ENTRADAS]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="542" y="10" width="167" height="25" backcolor="#FF9999" uuid="bf133569-b1f7-43c3-8ec4-30520974f262"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[SALIDAS]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="709" y="10" width="86" height="25" backcolor="#CCFFCC" uuid="522301f1-41aa-4817-abae-90d6cfc2f460"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle" rotation="None"/>
+                <text><![CDATA[SALDOS]]></text>
+            </staticText>
+        </band>
+    </pageHeader>
+    <columnHeader>
+        <band height="34" splitType="Stretch">
+            <rectangle>
+                <reportElement x="-7" y="0" width="802" height="29" backcolor="#CCCC00" uuid="22f4399a-dc65-4ad3-916e-d119912ab857"/>
+            </rectangle>
+            <staticText>
+                <reportElement x="106" y="0" width="100" height="29" backcolor="#B0B332" uuid="fdb532c0-c98b-4ffc-aad3-14e2a790595a"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[TIPO DE
+TRANSACCION]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="206" y="0" width="65" height="29" backcolor="#B0B332" uuid="04a341de-565f-4fc1-80de-2382c80f4c5e"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[REF.OTRA
+FACTURA]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="2" y="0" width="57" height="29" backcolor="#B0B332" uuid="27a0c944-b5b0-4ab7-8b54-dc721305e44f"/>
+                <text><![CDATA[NUMERO
+FACTURA]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="271" y="0" width="58" height="29" backcolor="#B0B332" uuid="d569831a-3e08-471b-9b43-f1bf16dfa08d"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[CANTIDAD]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="329" y="0" width="53" height="29" backcolor="#B0B332" uuid="a0009098-0ec2-4ddb-9f53-abdbd44634d1"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[COSTO
+UNIDAD]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="382" y="0" width="55" height="29" backcolor="#B0B332" uuid="1be1e861-0414-49a5-b6df-f48c2f7fee14"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[CANTIDAD]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="437" y="0" width="48" height="29" backcolor="#B0B332" uuid="e8b36e5e-3626-4d93-b8cb-2eece4bb7ad4"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[COSTO
+UNIDAD]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="485" y="0" width="60" height="29" backcolor="#B0B332" uuid="96c0cbef-fd9e-4214-8795-02f1bb8aa887"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[COSTO
+TOTAL]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="545" y="0" width="57" height="29" backcolor="#B0B332" uuid="40495de8-3dca-41e5-a73c-8835fce6d92c"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[CANTIDAD]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="602" y="0" width="54" height="29" backcolor="#B0B332" uuid="bbfddf78-0c60-4071-9619-3edaecafa201"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[COSTO
+UNIDAD]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="656" y="0" width="56" height="29" backcolor="#B0B332" uuid="8b928abb-1dbe-4211-b76b-943e605c005e"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[COSTO
+TOTAL]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="728" y="0" width="70" height="29" backcolor="#B0B332" uuid="f4cdf002-0ec1-40b9-9f0d-cd14fa053d68"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[CANTIDAD
+EXISTENCIAS]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="59" y="0" width="47" height="29" backcolor="#B0B332" uuid="58be9c34-cd03-44ab-91ed-cbe23477724d"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[FECHA]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="21" splitType="Stretch">
+            <textField>
+                <reportElement x="56" y="0" width="47" height="20" uuid="6a267948-d272-4bf7-b680-4d1d5ef765c1"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{fechaF}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="118" y="0" width="96" height="20" uuid="251d1d69-d62f-4d85-a291-b700832d17bc"/>
+                <textElement verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{tipoMovimientoF}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="215" y="0" width="36" height="20" uuid="4c846018-7858-4d37-8ecd-947a6325313a"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{refOtraFacturaF}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="2" y="0" width="38" height="20" uuid="afbaccfe-58d3-4d97-8fd5-2d6422eea5ef"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{numFacturaF}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="268" y="0" width="35" height="20" uuid="ecf030df-5941-4383-a8ac-e745274877c7"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{cantidadUnidadesF}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="326" y="0" width="41" height="20" uuid="723b5943-3cdf-4362-838b-48342c64aacb"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{costoUnitarioF}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="379" y="0" width="36" height="20" uuid="751932e5-362d-4842-a419-166a2305fa2f"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{cantidadUnidadesEntrada}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="437" y="0" width="37" height="20" uuid="1c8df0bc-379c-4b52-abad-53ba1e895c86"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{costoUnitarioEntrada}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="493" y="0" width="49" height="20" uuid="7cd3058d-b3c2-4968-b4e7-daf85b49075a"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{costoTotalEntrada}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="542" y="0" width="39" height="20" uuid="6eb1bf23-aaf4-4596-845b-be6b7cfcb015"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{cantidadunidadesSalida}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="602" y="0" width="41" height="20" uuid="083ed354-8171-4be4-ba11-ea32fbddfa43"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{costoUnitarioSalida}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="656" y="0" width="46" height="20" uuid="10070fd3-83ae-466f-bfca-c2eae1d748fa"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{costoTotalSalida}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement mode="Transparent" x="725" y="0" width="46" height="20" backcolor="#CCFFCC" uuid="8f3c9c64-4cdf-49ec-9512-be0dcbc02725"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{cantidadExistencias}]]></textFieldExpression>
+            </textField>
+            <line>
+                <reportElement x="-4" y="20" width="802" height="1" uuid="b8b3ecf9-eb12-4992-b289-898d8bd65c61"/>
+            </line>
+            <line>
+                <reportElement x="378" y="0" width="1" height="18" uuid="d21ba698-a7f6-4a0f-af5b-62c50223e8eb"/>
+            </line>
+            <line>
+                <reportElement x="545" y="0" width="1" height="18" uuid="ca5dfd53-f36a-41db-8297-cbf9fa8a17f2"/>
+            </line>
+            <line>
+                <reportElement x="708" y="0" width="1" height="18" uuid="0ac05c1a-46e6-4611-8008-be95671514c6"/>
+            </line>
+        </band>
+    </detail>
+    <columnFooter>
+        <band height="44">
+            <rectangle>
+                <reportElement x="-7" y="0" width="802" height="15" backcolor="#CCCC00" uuid="54702477-a36b-45a6-94e2-1c5b9d39cb27"/>
+            </rectangle>
+        </band>
+    </columnFooter>
+    <pageFooter>
+        <band height="50">
+            <textField>
+                <reportElement x="678" y="30" width="80" height="20" uuid="0f153ece-84cb-4d92-be05-f3632ddff65d"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+            </textField>
+            <textField evaluationTime="Report">
+                <reportElement x="762" y="30" width="40" height="20" uuid="a7052ce5-116f-4fcb-9eff-cfb0649490e6"/>
+                <textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+</jasperReport>
